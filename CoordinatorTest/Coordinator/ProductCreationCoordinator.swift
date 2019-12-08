@@ -86,6 +86,14 @@ extension ProductCreationCoordinator: ProductNameEnterControllerDelegate {
         typeController.delegate = self
         navigationController.pushViewController(typeController, animated: true)
     }
+
+    func returnToIntro() {
+        guard let introViewController = navigationController.viewController(ofType: ProductIntroController.self) else {
+            return
+        }
+
+        navigationController.popToViewController(introViewController, animated: true)
+    }
 }
 
 extension ProductCreationCoordinator: ProductTypeSelectControllerDelegate {

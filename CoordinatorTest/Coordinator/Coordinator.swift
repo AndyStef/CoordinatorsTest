@@ -24,3 +24,14 @@ extension Coordinator {
         childCoordinators.remove(at: index)
     }
 }
+
+extension UINavigationController {
+    func viewController<T: UIViewController>(ofType type: T.Type) -> T? {
+        guard let viewController = viewControllers.first(where: { $0 is T }),
+            let typedViewController = viewController as? T else {
+                return nil
+        }
+
+        return typedViewController
+    }
+}
